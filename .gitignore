@@ -1,0 +1,6 @@
+.settings/
+bin/
+acsm2022.jnlp
+.classpath
+.project
+*.acsm*
