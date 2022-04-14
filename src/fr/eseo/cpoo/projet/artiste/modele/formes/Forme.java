@@ -38,16 +38,16 @@ public abstract class Forme {
 	
 	// GETTERS ==============================================================================
 	public Coordonnees getPosition (){
-		return position ;
+		return this.position ;
 	}
 	
 	public double getLargeur() {
-		return largeur;
+		return this.largeur;
 	}
 
 	
 	public double getHauteur() {
-		return hauteur;
+		return this.hauteur;
 	}
 	
 	// SETTERS ==============================================================================
@@ -88,16 +88,6 @@ public abstract class Forme {
 	public void deplacerDe(double deltaX, double deltaY) {
 		this.setPosition(new Coordonnees(this.getPosition().getAbscisse() + deltaX, 
 										this.getPosition().getOrdonnee() + deltaY));
-	}
-	
-	private String adapterFormat(String valeur) {
-	      String pattern = "###.0#";
-	      Locale defLocal = Locale.getDefault();
-
-	      DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(defLocal);
-	      decimalFormat.applyPattern(pattern);
-
-	      return decimalFormat.format(valeur);
 	}
 	
 	

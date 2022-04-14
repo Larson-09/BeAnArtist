@@ -1,5 +1,7 @@
 package fr.eseo.cpoo.projet.artiste.modele.formes;
 
+import java.text.Normalizer.Form;
+
 import fr.eseo.cpoo.projet.artiste.modele.Coordonnees;
 
 public class Ellipse extends Forme{
@@ -8,19 +10,21 @@ public class Ellipse extends Forme{
 	// CONSTRUCTEURS =================================================================================================
 	
 	public Ellipse (){
-		this (new Coordonnees(), LARGEUR_PAR_DEFAUT, HAUTEUR_PAR_DEFAUT);
+		this (new Coordonnees(), Forme.LARGEUR_PAR_DEFAUT, Forme.HAUTEUR_PAR_DEFAUT);
 	}
 	
-	public Ellipse ( double largeur , double hauteur ){
-		this (new Coordonnees() ,largeur, hauteur );
+	public Ellipse (double largeur , double hauteur){
+		this (new Coordonnees() ,largeur, hauteur);
 	}
 	
 	public Ellipse (Coordonnees position ){
-		this(position, LARGEUR_PAR_DEFAUT, HAUTEUR_PAR_DEFAUT );
+		this(position, Forme.LARGEUR_PAR_DEFAUT, Forme.HAUTEUR_PAR_DEFAUT );
 	}
 	
 	public Ellipse (Coordonnees position , double largeur , double hauteur){
-		super(position, largeur, hauteur);
+		this.setPosition(position);
+		this.setLargeur(largeur);
+		this.setHauteur(hauteur);
 	}
 	
 	
@@ -43,7 +47,7 @@ public class Ellipse extends Forme{
 			throw new IllegalArgumentException("setHauteur : la valeur passée en paramètre ne peut pas être négative");
 		}
 		
-		super.setLargeur(hauteur);
+		super.setHauteur(hauteur);
 	}
 
 	
@@ -62,12 +66,17 @@ public class Ellipse extends Forme{
 		perimetre = Math.PI * (a + b);
 		perimetre *= 1 + (3*h) / (10 + Math.sqrt(4 - 3*h));
 		
+		perimetre = Math.round(perimetre *100.0)/100.0;
+
 		return perimetre;
 	}
 	
 	@Override
 	public double aire() {
-		return Math.PI * (this.getHauteur() / 2) * (this.getLargeur() / 2);
+		double aire = Math.PI * (this.getHauteur() / 2) * (this.getLargeur() / 2);
+		aire = Math.round(aire *100.0)/100.0;
+		return aire;
+
 	}
 	
 	// METHODES OJBET =======================================================================================
