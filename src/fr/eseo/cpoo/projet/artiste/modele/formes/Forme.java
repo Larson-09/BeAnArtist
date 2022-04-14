@@ -1,0 +1,151 @@
+package fr.eseo.cpoo.projet.artiste.modele.formes;
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
+
+import fr.eseo.cpoo.projet.artiste.modele.Coordonnees;
+
+public abstract class Forme {
+	
+	// CONSTANTES ==============================================================================
+	public static final double LARGEUR_PAR_DEFAUT = 100;
+	public static final double HAUTEUR_PAR_DEFAUT = 150;
+
+	// PARAMETRES ==============================================================================
+	private double largeur ;
+	private double hauteur ;
+	private Coordonnees position ;
+	
+	// CONSTRUCTORS ==============================================================================
+	public Forme (){
+		this (new Coordonnees(), LARGEUR_PAR_DEFAUT, HAUTEUR_PAR_DEFAUT);
+	}
+	
+	public Forme ( double largeur , double hauteur ){
+		this (new Coordonnees() ,largeur, hauteur );
+	}
+	
+	public Forme (Coordonnees position ){
+		this(position, LARGEUR_PAR_DEFAUT, HAUTEUR_PAR_DEFAUT );
+	}
+	
+	public Forme (Coordonnees position , double largeur , double hauteur){
+		this.setPosition (position);
+		this.setLargeur (largeur);
+		this.setHauteur (hauteur);
+	}
+	
+	// GETTERS ==============================================================================
+	public Coordonnees getPosition (){
+		return position ;
+	}
+	
+	public double getLargeur() {
+		return largeur;
+	}
+
+	
+	public double getHauteur() {
+		return hauteur;
+	}
+	
+	// SETTERS ==============================================================================
+	public void setPosition ( Coordonnees position ){
+		this . position = position ;
+	}
+	
+	public void setLargeur(double largeur) {
+		this.largeur = largeur;
+	}
+
+	public void setHauteur(double hauteur) {
+		this.hauteur = hauteur;
+	}
+	
+	// AUTRES METHODES ==============================================================================
+	
+	public double getCadreMinX() {
+		return Math.min(this.getPosition().getAbscisse(), this.getPosition().getAbscisse() + largeur);
+	}
+	
+	public double getCadreMinY() {
+		return Math.min(this.getPosition().getOrdonnee(), this.getPosition().getOrdonnee() + hauteur);
+	}
+	
+	public double getCadreMaxX() {
+		return Math.max(this.getPosition().getAbscisse(), this.getPosition().getAbscisse() + largeur);
+	}
+	
+	public double getCadreMaxY() {
+		return Math.max(this.getPosition().getOrdonnee(), this.getPosition().getOrdonnee() + hauteur);
+	}
+	
+	public void deplacerVers(double nouvelleAbscisse, double nouvelleOrdonnee) {
+		this.setPosition(new Coordonnees(nouvelleAbscisse, nouvelleOrdonnee));
+	}
+	
+	public void deplacerDe(double deltaX, double deltaY) {
+		this.setPosition(new Coordonnees(this.getPosition().getAbscisse() + deltaX, 
+										this.getPosition().getOrdonnee() + deltaY));
+	}
+	
+	private String adapterFormat(String valeur) {
+	      String pattern = "###.0#";
+	      Locale defLocal = Locale.getDefault();
+
+	      DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(defLocal);
+	      decimalFormat.applyPattern(pattern);
+
+	      return decimalFormat.format(valeur);
+	}
+	
+	
+	// METHODES ABSTRAITES ==============================================================================
+	
+	public abstract double aire ();
+	public abstract double perimetre ();
+	
+	// METHODES OJBET =======================================================================================
+	
+	@Override
+	public boolean equals(Object obj){
+		  
+		// L'objet est null
+		if(obj == null) return false;
+  
+		// L'objet est lui même
+		if(obj instanceof Ligne && this == obj) return true;
+  
+		// L'objet à les meme coordonnees
+		Ligne autreLigne = (Ligne)obj;
+				
+		if (this.getPosition().equals(autreLigne.getPosition()) && 
+			this.getLargeur() == autreLigne.getLargeur() && 
+			this.getHauteur() == autreLigne.getHauteur()) {
+			
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}
