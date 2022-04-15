@@ -106,7 +106,8 @@ public class EllipseTest {
 		String perimetre = e.adapterFormat(63.82);
 		String aire = e.adapterFormat(294.52);
 		
-		String chaineAttendu = "[Ellipse] pos : (10,0 , 10,0) petit rayon : 7.5 grand rayon : 12,5 périmètre : 63.82 aire : 294,52";
+		String chaineAttendu = "[Ellipse] pos : (10,0 , 10,0) petit rayon : 7.5 grand rayon : 12.5 perimètre : 63.82 aire : 294.52";
+		
 		assertEquals(chaineAttendu, e.toString());
 	}
 	

@@ -74,6 +74,28 @@ public class Ellipse extends Forme{
 		return this.arrondir(aire, 2);
 	}
 	
+	@Override
+	public boolean contient(Coordonnees c) {
+		
+		// Determiner le centre de l'ellipse
+		double h = this.getLargeur() / 2;
+		double k = this.getHauteur() / 2;
+		
+		// Reucperer les coordonnes a verifier
+		double x = c.getAbscisse();
+		double y = c.getOrdonnee();
+		
+		// Determiner le petit et le grand rayon
+		double majorR = Math.max(this.getHauteur(), this.getLargeur()) / 2;
+		double minorR = Math.min(this.getHauteur(), this.getLargeur()) / 2;
+		
+		// Calcul
+		double res = Math.pow(x - h, 2) / Math.pow(majorR, 2);
+		res += Math.pow(y - k, 2) / Math.pow(minorR, 2);
+		
+		return res <= 1;
+	}
+	
 	// METHODES OJBET =======================================================================================
 	
 	@Override
@@ -83,7 +105,7 @@ public class Ellipse extends Forme{
         		"pos : " + this.getPosition().toString() + 
         		" petit rayon : " + (Math.min(this.getLargeur(), this.getHauteur()) / 2) +
                 " grand rayon : " + (Math.max(this.getLargeur(), this.getLargeur()) / 2) + 
-                " périmètre : " + this.perimetre() + 
+                " perimètre : " + this.perimetre() + 
                 " aire : " + this.aire();
 	}
     

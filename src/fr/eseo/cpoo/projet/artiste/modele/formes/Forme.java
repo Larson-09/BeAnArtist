@@ -95,6 +95,7 @@ public abstract class Forme {
 	
 	public abstract double aire ();
 	public abstract double perimetre ();
+	public abstract boolean contient(Coordonnees coordonnees);
 	
 	// METHODES PROTECTED ==============================================================================
 	protected double arrondir(double valeur, int nbDecimales) {

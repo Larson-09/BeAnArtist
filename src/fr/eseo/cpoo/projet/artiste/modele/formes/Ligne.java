@@ -8,6 +8,8 @@ import fr.eseo.cpoo.projet.artiste.modele.Coordonnees;
 
 public class Ligne extends Forme{
 	
+	public static final double EPSILON = 1.0;
+	
 	public Ligne (){
 		this (new Coordonnees(), LARGEUR_PAR_DEFAUT, HAUTEUR_PAR_DEFAUT);
 	}
@@ -54,13 +56,22 @@ public class Ligne extends Forme{
 	
 	// METHODES PUBLIQUES =========================================================================================
 	
+	@Override
 	public double aire() {
 		return 0;
 	}
 	
+	@Override
 	public double perimetre() {
 		return this.getC1().distanceVers(this.getC2());
 	}	
+	
+	@Override
+	public boolean contient(Coordonnees c) {
+		
+		double res = this.getC1().distanceVers(c) + this.getC2().distanceVers(c) - this.perimetre(); 
+		return res < Ligne.EPSILON;
+	}
 
 	// METHODES OJBET =======================================================================================
 
