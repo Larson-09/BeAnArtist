@@ -43,21 +43,21 @@ public class EllipseTest {
 	}
 	
 	@Test
-	public void testConstructeurPositionLargeurHauteur() {
-		Ellipse e = new Ellipse(new Coordonnees(5.5, 8.5), 10.5, 15.5);
-		
-		assertEquals(new Coordonnees(5.5, 8.5), e.getPosition(), "Test getPosition");
-		assertEquals(10.5, e.getLargeur(), "Test getLargeur");
-		assertEquals(15.5, e.getHauteur(), "Test getHauteur");
-	}
-	
-	@Test
 	public void testConstructeurPosition() {
 		Ellipse e = new Ellipse(new Coordonnees(5.5, 8.5));
 		
 		assertEquals(new Coordonnees(5.5, 8.5), e.getPosition(), "Test getPosition");
 		assertEquals(Forme.LARGEUR_PAR_DEFAUT, ellipse.getLargeur(), "Test getLargeur");
 		assertEquals(Forme.HAUTEUR_PAR_DEFAUT, ellipse.getHauteur(), "Test getHauteur");
+	}
+	
+	@Test
+	public void testConstructeurPositionLargeurHauteur() {
+		Ellipse e = new Ellipse(new Coordonnees(5.5, 8.5), 10.5, 15.5);
+		
+		assertEquals(new Coordonnees(5.5, 8.5), e.getPosition(), "Test getPosition");
+		assertEquals(10.5, e.getLargeur(), "Test getLargeur");
+		assertEquals(15.5, e.getHauteur(), "Test getHauteur");
 	}
 	
 	// TEST SETTERS =================================================================================
@@ -76,28 +76,37 @@ public class EllipseTest {
 	    	});
 	}
 	
-	// TEST METHODES =================================================================================
+	// TESTS METHODES =================================================================================
 	
 	@ParameterizedTest
 	@CsvFileSource(resources="dt/ellipse/DT_perimetre")
-	public void testPerimetre(double positionX, double positionY, double largeur, double hauteur, double perimetreAttendu) {
+	public void testPerimetre(double largeur, double hauteur, double perimetreAttendu) {
 		
-		Ellipse e = new Ellipse(new Coordonnees(positionX, positionY), largeur, hauteur);
-		assertEquals(perimetreAttendu, e.perimetre());
+		this.ellipse.setLargeur(largeur);
+		this.ellipse.setHauteur(hauteur);
+		assertEquals(perimetreAttendu, this.ellipse.perimetre());
 	}
 	
 	@ParameterizedTest
 	@CsvFileSource(resources="dt/ellipse/DT_aire")
-	public void testAire(double positionX, double positionY, double largeur, double hauteur, double aireAttendu) {
+	public void testAire(double largeur, double hauteur, double aireAttendu) {
 		
-		Ellipse e = new Ellipse(new Coordonnees(positionX, positionY), largeur, hauteur);
-		assertEquals(aireAttendu, e.aire());
+		this.ellipse.setLargeur(largeur);
+		this.ellipse.setHauteur(hauteur);		
+		assertEquals(aireAttendu, this.ellipse.aire());
 	}
 	
 	@Test
 	public void testToString() {
-		Ellipse e = new Ellipse(new Coordonnees(5.5, 8.5), 10.5, 15.5);
-		String chaineAttendu = "[Ellipse] pos : (5,5 , 8,5) petit rayon : 5.25 grand rayon : 5.25 périmètre : 82.44 aire : 127.82";
+		Ellipse e = new Ellipse(new Coordonnees(10, 10), 25, 15);
+		
+		String posXY = e.adapterFormat(10.0);
+		String petitRayon = e.adapterFormat(10.5 / 2);
+		String grandRayon = e.adapterFormat(15.5 / 2);
+		String perimetre = e.adapterFormat(63.82);
+		String aire = e.adapterFormat(294.52);
+		
+		String chaineAttendu = "[Ellipse] pos : (10,0 , 10,0) petit rayon : 7.5 grand rayon : 12,5 périmètre : 63.82 aire : 294,52";
 		assertEquals(chaineAttendu, e.toString());
 	}
 	

@@ -69,7 +69,7 @@ public class Coordonnees {
 	@Override
 	public String toString() {
 		
-	      String pattern = "###.0#";
+	      String pattern = "##0.0#";
 
 	      Locale enlocale  = new Locale("en", "US");
 	      Locale dalocale  = new Locale("da", "DK");

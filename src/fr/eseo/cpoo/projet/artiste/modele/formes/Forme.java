@@ -96,6 +96,25 @@ public abstract class Forme {
 	public abstract double aire ();
 	public abstract double perimetre ();
 	
+	// METHODES PROTECTED ==============================================================================
+	protected double arrondir(double valeur, int nbDecimales) {
+		
+		double a = Math.pow(10, nbDecimales);
+		return Math.round(valeur * a) / a;
+	}
+	
+	protected String adapterFormat(double valeur) {
+	      String pattern = "###.0#";
+	      Locale defLocal = Locale.getDefault();
+
+	      DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(defLocal);
+	      decimalFormat.applyPattern(pattern);
+
+	      return decimalFormat.format(valeur);
+	}
+	
+	
+	
 	// METHODES OJBET =======================================================================================
 	
 	@Override

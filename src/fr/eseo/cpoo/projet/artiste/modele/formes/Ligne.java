@@ -60,19 +60,7 @@ public class Ligne extends Forme{
 	
 	public double perimetre() {
 		return this.getC1().distanceVers(this.getC2());
-	}
-	
-	// METHODES PRIVEES ===================================================================================================
-	
-	private String adapterFormat(double valeur) {
-	      String pattern = "###.0#";
-	      Locale defLocal = Locale.getDefault();
-
-	      DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(defLocal);
-	      decimalFormat.applyPattern(pattern);
-
-	      return decimalFormat.format(valeur);
-	}
+	}	
 
 	// METHODES OJBET =======================================================================================
 

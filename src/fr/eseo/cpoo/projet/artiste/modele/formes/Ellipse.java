@@ -57,26 +57,21 @@ public class Ellipse extends Forme{
 	public double perimetre() {
 		
 		// Determiner le petit et le grand rayon
-		double a = Math.min(this.getHauteur(), this.getLargeur());
-		double b = Math.max(this.getHauteur(), this.getLargeur());
+		double a = Math.min(this.getHauteur(), this.getLargeur()) / 2;
+		double b = Math.max(this.getHauteur(), this.getLargeur()) / 2;
 		double h = Math.pow( (a - b) / (a + b), 2);
 		
 		double perimetre;
 		
-		perimetre = Math.PI * (a + b);
-		perimetre *= 1 + (3*h) / (10 + Math.sqrt(4 - 3*h));
+		perimetre = Math.PI * (a + b) * ( 1 + (3*h) / (10 + Math.sqrt(4 - 3*h)) );
 		
-		perimetre = Math.round(perimetre *100.0)/100.0;
-
-		return perimetre;
+		return this.arrondir(perimetre, 2);
 	}
 	
 	@Override
 	public double aire() {
 		double aire = Math.PI * (this.getHauteur() / 2) * (this.getLargeur() / 2);
-		aire = Math.round(aire *100.0)/100.0;
-		return aire;
-
+		return this.arrondir(aire, 2);
 	}
 	
 	// METHODES OJBET =======================================================================================
@@ -92,4 +87,5 @@ public class Ellipse extends Forme{
                 " aire : " + this.aire();
 	}
     
+
 }
