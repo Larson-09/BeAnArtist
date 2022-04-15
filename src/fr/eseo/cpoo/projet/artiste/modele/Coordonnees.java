@@ -71,8 +71,6 @@ public class Coordonnees {
 		
 	      String pattern = "##0.0#";
 
-	      Locale enlocale  = new Locale("en", "US");
-	      Locale dalocale  = new Locale("da", "DK");
 	      Locale defLocal = Locale.getDefault();
 
 	      DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(defLocal);

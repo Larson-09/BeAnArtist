@@ -78,8 +78,8 @@ public class Ellipse extends Forme{
 	public boolean contient(Coordonnees c) {
 		
 		// Determiner le centre de l'ellipse
-		double h = this.getLargeur() / 2;
-		double k = this.getHauteur() / 2;
+		double h = this.getPosition().getAbscisse() + this.getLargeur() / 2;
+		double k = this.getPosition().getOrdonnee() + this.getHauteur() / 2;
 		
 		// Reucperer les coordonnes a verifier
 		double x = c.getAbscisse();
@@ -90,9 +90,7 @@ public class Ellipse extends Forme{
 		double minorR = Math.min(this.getHauteur(), this.getLargeur()) / 2;
 		
 		// Calcul
-		double res = Math.pow(x - h, 2) / Math.pow(majorR, 2);
-		res += Math.pow(y - k, 2) / Math.pow(minorR, 2);
-		
+		double res = Math.pow(x - h, 2) / Math.pow(majorR, 2) + Math.pow(y - k, 2) / Math.pow(minorR, 2);
 		return res <= 1;
 	}
 	
