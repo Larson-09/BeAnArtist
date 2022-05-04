@@ -101,8 +101,8 @@ public class Ellipse extends Forme{
 		
         return "[" + this.getClass().getSimpleName() +"] " +
         		"pos : " + this.getPosition().toString() + 
-        		" petit rayon : " + (Math.min(this.getLargeur(), this.getHauteur()) / 2) +
-                " grand rayon : " + (Math.max(this.getLargeur(), this.getLargeur()) / 2) + 
+        		" petit rayon : " +  this.getHauteur() / 2 +
+                " grand rayon : " + this.getLargeur() / 2 + 
                 " perimètre : " + this.perimetre() + 
                 " aire : " + this.aire();
 	}

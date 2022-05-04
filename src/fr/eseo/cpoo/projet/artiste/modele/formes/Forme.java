@@ -114,8 +114,6 @@ public abstract class Forme {
 	      return decimalFormat.format(valeur);
 	}
 	
-	
-	
 	// METHODES OJBET =======================================================================================
 	
 	@Override
@@ -125,14 +123,14 @@ public abstract class Forme {
 		if(obj == null) return false;
   
 		// L'objet est lui même
-		if(obj instanceof Ligne && this == obj) return true;
+		if(obj instanceof Forme && this == obj) return true;
   
 		// L'objet à les meme coordonnees
-		Ligne autreLigne = (Ligne)obj;
+		Forme autreForme = (Forme)obj;
 				
-		if (this.getPosition().equals(autreLigne.getPosition()) && 
-			this.getLargeur() == autreLigne.getLargeur() && 
-			this.getHauteur() == autreLigne.getHauteur()) {
+		if (this.getPosition().equals(autreForme.getPosition()) && 
+			this.getLargeur() == autreForme.getLargeur() && 
+			this.getHauteur() == autreForme.getHauteur()) {
 			
 			return true;
 		}

@@ -8,7 +8,11 @@ import fr.eseo.cpoo.projet.artiste.modele.Coordonnees;
 
 public class Ligne extends Forme{
 	
-	public static final double EPSILON = 1.0;
+	public static final double EPSILON;
+	
+	static {
+		EPSILON = 0.2;
+	}
 	
 	public Ligne (){
 		this (new Coordonnees(), LARGEUR_PAR_DEFAUT, HAUTEUR_PAR_DEFAUT);
