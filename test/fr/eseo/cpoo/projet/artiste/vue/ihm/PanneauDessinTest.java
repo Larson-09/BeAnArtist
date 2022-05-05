@@ -18,7 +18,7 @@ public class PanneauDessinTest {
         JFrame frameTestDefaut = new JFrame("Etre un Artiste");
         
         // Ajouter un panneau dessin
-        frameTestDefaut.setContentPane(new PanneauDessin());
+        frameTestDefaut.add(new PanneauDessin());
         
         // Pack les modifications
         frameTestDefaut.pack();

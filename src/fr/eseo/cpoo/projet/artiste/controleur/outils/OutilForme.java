@@ -12,7 +12,7 @@ public abstract class OutilForme extends Outil {
 		
 		// Si on fait un double click
 		if(e.getClickCount() == 2) {
-			
+				
 			this.setDebut(new Coordonnees(e.getX(), e.getY()));
 			this.setFin(new Coordonnees(e.getX() + Forme.LARGEUR_PAR_DEFAUT , e.getY() + Forme.HAUTEUR_PAR_DEFAUT));
 			

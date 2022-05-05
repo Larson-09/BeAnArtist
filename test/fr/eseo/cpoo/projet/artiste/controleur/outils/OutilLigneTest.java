@@ -19,7 +19,7 @@ public class OutilLigneTest {
     	// Creer une fenetre avec un panneau dessin
         JFrame frameTestDefaut = new JFrame("Outil Ligne Test");
         PanneauDessin pd = new PanneauDessin();
-        frameTestDefaut.setContentPane(pd);
+        frameTestDefaut.add(pd);
         
         // Creer un outil ligne et l'addocier au panneau dessin
         OutilLigne outilLigne = new OutilLigne();
