@@ -26,11 +26,9 @@ public class ActionEffacer extends AbstractAction {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		// Demander confirmation a l'utilisateur
-		JFrame frameConfirmer = new JFrame();
-		
+		// Demander confirmation a l'utilisateur		
 		int resp = JOptionPane.showConfirmDialog(
-				frameConfirmer, 
+				this.panneauDessin, 
 				"Voulez vous vraiment effacer toutes les formes ?", 
 				NOM_ACTION,
 				JOptionPane.YES_NO_OPTION

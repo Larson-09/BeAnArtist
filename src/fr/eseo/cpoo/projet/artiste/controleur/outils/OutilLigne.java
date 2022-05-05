@@ -1,6 +1,5 @@
 package fr.eseo.cpoo.projet.artiste.controleur.outils;
 
-import fr.eseo.cpoo.projet.artiste.modele.Coordonnees;
 import fr.eseo.cpoo.projet.artiste.modele.formes.Ligne;
 import fr.eseo.cpoo.projet.artiste.vue.formes.VueForme;
 import fr.eseo.cpoo.projet.artiste.vue.formes.VueLigne;
