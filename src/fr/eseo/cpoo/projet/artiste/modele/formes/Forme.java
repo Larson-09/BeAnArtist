@@ -1,12 +1,14 @@
 package fr.eseo.cpoo.projet.artiste.modele.formes;
 
+import java.awt.Color;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+import fr.eseo.cpoo.projet.artiste.modele.Coloriable;
 import fr.eseo.cpoo.projet.artiste.modele.Coordonnees;
 
-public abstract class Forme {
+public abstract class Forme  {
 	
 	// CONSTANTES ==============================================================================
 	public static final double LARGEUR_PAR_DEFAUT = 100;
@@ -113,6 +115,8 @@ public abstract class Forme {
 
 	      return decimalFormat.format(valeur);
 	}
+	
+	// METHODES COLORIABLES ==============================================================================
 	
 	// METHODES OJBET =======================================================================================
 	
